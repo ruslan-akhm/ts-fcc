@@ -1,21 +1,21 @@
-type ID = string;
-type Drinks = string;
-type MaybeDrinks = Drinks | null;
+const doSomething = (): void => {
+  console.log("9");
+};
 
-interface UserInterface {
-  id: ID;
-  name: string;
-  surname: string;
-}
+let foo: any = "foo";
+foo = 2;
+foo = undefined;
+console.log(foo.bar);
 
-const PopularDrinks: Drinks[] = ["tea", "coffee"];
+const doNever = (): never => {
+  throw "never";
+};
 
-const coffee: MaybeDrinks = "coffee";
+let vAny: any = 10;
+let vUnknown: unknown = 10;
 
-let username: string = "alex";
+let s1: string = vAny;
+let s2: string = vUnknown as string;
 
-let pageName: string | number = "1";
-
-let errorMessage: string | null = null;
-
-let user: UserInterface | null = null;
+let pageNumber: string = "1";
+let numericPageNumber: number = (pageNumber as unknown) as number;
