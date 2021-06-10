@@ -1,20 +1,21 @@
+type ID = string;
+type Drinks = string;
+type MaybeDrinks = Drinks | null;
+
 interface UserInterface {
+  id: ID;
   name: string;
-  age?: number;
-  getMessage(): string;
+  surname: string;
 }
 
-const user: UserInterface = {
-  name: "Ruslan",
-  age: 27,
-  getMessage() {
-    return "Hello" + name;
-  },
-};
+const PopularDrinks: Drinks[] = ["tea", "coffee"];
 
-const user2: UserInterface = {
-  name: "Andy",
-  getMessage() {
-    return "Hello" + name;
-  },
-};
+const coffee: MaybeDrinks = "coffee";
+
+let username: string = "alex";
+
+let pageName: string | number = "1";
+
+let errorMessage: string | null = null;
+
+let user: UserInterface | null = null;

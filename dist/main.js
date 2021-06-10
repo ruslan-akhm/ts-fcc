@@ -1,13 +1,6 @@
-var user = {
-    name: "Ruslan",
-    age: 27,
-    getMessage: function () {
-        return "Hello" + name;
-    }
-};
-var user2 = {
-    name: "Andy",
-    getMessage: function () {
-        return "Hello" + name;
-    }
-};
+var PopularDrinks = ["tea", "coffee"];
+var coffee = "coffee";
+var username = "alex";
+var pageName = "1";
+var errorMessage = null;
+var user = null;
