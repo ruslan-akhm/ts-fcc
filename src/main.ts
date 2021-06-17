@@ -17,5 +17,12 @@ let vUnknown: unknown = 10;
 let s1: string = vAny;
 let s2: string = vUnknown as string;
 
-let pageNumber: string = "1";
-let numericPageNumber: number = (pageNumber as unknown) as number;
+let page: any = "1";
+let pageNumber = page as string;
+
+const someElement = document.querySelector(".foo") as HTMLInputElement;
+
+someElement.addEventListener("blur", event => {
+  const target = event.target as HTMLInputElement;
+  console.log(target.value);
+});
