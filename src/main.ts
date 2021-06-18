@@ -1,47 +1,31 @@
-const doSomething = (): void => {
-  console.log("9");
+const addId = <T extends object>(obj: T) => {
+  const id = Math.random().toString(16);
+  return {
+    ...obj,
+    id,
+  };
 };
 
-let foo: any = "foo";
-foo = 2;
-foo = undefined;
-console.log(foo.bar);
+interface UserInterface<T, V> {
+  name: string;
+  data: T;
+  meta: V;
+}
 
-const doNever = (): never => {
-  throw "never";
+const user: UserInterface<{ meta: string }, string> = {
+  name: "Jack",
+  data: {
+    meta: "foo",
+  },
+  meta: "baz",
 };
 
-let vAny: any = 10;
-let vUnknown: unknown = 10;
+const user2: UserInterface<string[], number> = {
+  name: "Alex",
+  data: ["foo", "bar", "baz"],
+  meta: 12,
+};
 
-let s1: string = vAny;
-let s2: string = vUnknown as string;
+const result = addId<UserInterface>(user);
 
-let page: any = "1";
-let pageNumber = page as string;
-
-const someElement = document.querySelector(".foo") as HTMLInputElement;
-
-someElement.addEventListener("blur", event => {
-  const target = event.target as HTMLInputElement;
-  console.log(target.value);
-});
-
-interface UserInterface {
-  getFullName(): string;
-}
-
-class User implements UserInterface {
-  private firstName: string;
-  private lastName: string;
-  constructor(firstName: string, lastName: string) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-  }
-  getFullName(): string {
-    return this.firstName + " " + this.lastName;
-  }
-}
-
-const user = new User("Rus", "Lan");
-console.log(user.getFullName);
+console.log(result);

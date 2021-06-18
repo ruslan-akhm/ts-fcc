@@ -1,33 +1,29 @@
-var doSomething = function () {
-    console.log("9");
-};
-var foo = "foo";
-foo = 2;
-foo = undefined;
-console.log(foo.bar);
-var doNever = function () {
-    throw "never";
-};
-var vAny = 10;
-var vUnknown = 10;
-var s1 = vAny;
-var s2 = vUnknown;
-var page = "1";
-var pageNumber = page;
-var someElement = document.querySelector(".foo");
-someElement.addEventListener("blur", function (event) {
-    var target = event.target;
-    console.log(target.value);
-});
-var User = /** @class */ (function () {
-    function User(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-    User.prototype.getFullName = function () {
-        return this.firstName + " " + this.lastName;
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
     };
-    return User;
-}());
-var user = new User("Rus", "Lan");
-console.log(user.getFullName);
+    return __assign.apply(this, arguments);
+};
+var addId = function (obj) {
+    var id = Math.random().toString(16);
+    return __assign(__assign({}, obj), { id: id });
+};
+var user = {
+    name: "Jack",
+    data: {
+        meta: "foo"
+    },
+    meta: "baz"
+};
+var user2 = {
+    name: "Alex",
+    data: ["foo", "bar", "baz"],
+    meta: 12
+};
+var result = addId(user);
+console.log(result);
